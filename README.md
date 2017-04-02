@@ -1,7 +1,7 @@
 ******
 # Notes:
 
-This is a base project to use for **stand alone** applications with **maven profiles**, **spring** and **hibernate** that don't run inside an application server. It generates a zip file with the jars, configuration files and execution scripts that can installed and executed from any location.
+This is a base project to use for **stand alone JAVA** applications with **maven profiles**, **spring** and **hibernate** that don't run inside an application server. It generates a zip file with the jars, configuration files and execution scripts that can installed and executed from any location.
 
 *********************
 # Execution in eclipse:

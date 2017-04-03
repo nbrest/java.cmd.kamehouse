@@ -8,7 +8,11 @@
 ###############################################################
 
 CURRENT_DIR=$(pwd)
-SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
+if [[ $0 == /* ]]; then 
+  SCRIPT_DIR=$(dirname $0)
+else 
+  SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
+fi
 
 cd ${SCRIPT_DIR}/..
 

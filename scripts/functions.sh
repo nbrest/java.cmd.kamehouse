@@ -1,7 +1,11 @@
 function getAppName() {
 
   CURRENT_DIR=$(pwd)
-  SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
+  if [[ $0 == /* ]]; then 
+    SCRIPT_DIR=$(dirname $0)
+  else 
+    SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
+  fi
 
   cd ${SCRIPT_DIR}/..
 
@@ -15,7 +19,11 @@ function getAppName() {
 function getAppVersion() {
 
   CURRENT_DIR=$(pwd)
-  SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
+  if [[ $0 == /* ]]; then 
+    SCRIPT_DIR=$(dirname $0)
+  else 
+    SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
+  fi
 
   cd ${SCRIPT_DIR}/..
 
@@ -29,7 +37,11 @@ function getAppVersion() {
 function createExecScript() {
   
   CURRENT_DIR=$(pwd)
-  SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
+  if [[ $0 == /* ]]; then 
+    SCRIPT_DIR=$(dirname $0)
+  else 
+    SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
+  fi
 
   cd ${SCRIPT_DIR}/..
   
@@ -49,7 +61,11 @@ function createExecScript() {
 function updateLogConfigFile() {
   
   CURRENT_DIR=$(pwd)
-  SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
+  if [[ $0 == /* ]]; then 
+    SCRIPT_DIR=$(dirname $0)
+  else 
+    SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
+  fi
 
   cd ${SCRIPT_DIR}/..
   

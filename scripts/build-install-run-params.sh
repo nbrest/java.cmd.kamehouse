@@ -9,7 +9,11 @@
 # This script builds with compiler parameters and runs the application with run parameters.
 
 CURRENT_DIR=$(pwd)
-SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
+if [[ $0 == /* ]]; then 
+  SCRIPT_DIR=$(dirname $0)
+else 
+  SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
+fi
 
 COMPILER_PARAMETERS=""
 RUN_PARAMETERS=""

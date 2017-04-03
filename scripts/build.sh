@@ -6,7 +6,11 @@
 # parameters: maven options
 
 CURRENT_DIR=$(pwd)
-SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
+if [[ $0 == /* ]]; then 
+  SCRIPT_DIR=$(dirname $0)
+else 
+  SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
+fi
 source ${SCRIPT_DIR}/functions.sh
 
 function main() {

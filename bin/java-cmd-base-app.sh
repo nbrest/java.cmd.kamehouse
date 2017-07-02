@@ -16,6 +16,6 @@ fi
 
 cd ${SCRIPT_DIR}/..
 
-java -jar lib/base-app-0.0.1-SNAPSHOT.jar "$@"
+java -jar lib/java-cmd-base-app-0.0.1-SNAPSHOT.jar "$@"
 
 cd ${CURRENT_DIR}

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPOSITORY_NAME="base-app"
+REPOSITORY_NAME="java.cmd.base.app"
 
 #############
 # HTTPS all #

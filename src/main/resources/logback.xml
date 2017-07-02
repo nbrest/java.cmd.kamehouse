@@ -11,10 +11,10 @@
   </appender>
 
   <appender name="dailyRollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <File>logs/base-app.log</File>
+    <File>logs/java-cmd-base-app.log</File>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       <!-- daily rollover -->
-      <FileNamePattern>logs/base-app.%d{yyyy-MM-dd}.log</FileNamePattern>
+      <FileNamePattern>logs/java-cmd-base-app.%d{yyyy-MM-dd}.log</FileNamePattern>
       <!-- keep 30 days' worth of history -->
       <maxHistory>30</maxHistory>
     </rollingPolicy>

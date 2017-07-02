@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>ar.com.nicobrest</groupId>
-  <artifactId>base-app</artifactId>
+  <artifactId>java-cmd-base-app</artifactId>
   <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>base-app</name>
+  <name>Java Cmd Base App</name>
   <url>https://www.nicobrest.com.ar</url>
 
   <properties>

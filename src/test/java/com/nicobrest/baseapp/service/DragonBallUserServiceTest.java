@@ -1,4 +1,4 @@
-package baseapp.service;
+package com.nicobrest.baseapp.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -7,10 +7,11 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import baseapp.dao.DragonBallUserDao;
-import baseapp.exception.ApplicationBadRequestException;
-import baseapp.exception.ApplicationNotFoundException;
-import baseapp.model.DragonBallUser;
+import com.nicobrest.baseapp.dao.DragonBallUserDao;
+import com.nicobrest.baseapp.exception.ApplicationBadRequestException;
+import com.nicobrest.baseapp.exception.ApplicationNotFoundException;
+import com.nicobrest.baseapp.model.DragonBallUser;
+import com.nicobrest.baseapp.service.DragonBallUserService;
 
 import org.junit.Before;
 import org.junit.Test;

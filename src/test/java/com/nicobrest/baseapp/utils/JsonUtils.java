@@ -1,4 +1,4 @@
-package baseapp.utils;
+package com.nicobrest.baseapp.utils;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -24,7 +24,7 @@
     </encoder>
   </appender>
 
-  <logger name="baseapp" additivity="false">
+  <logger name="com.nicobrest.baseapp" additivity="false">
     <level value="DEBUG" />
     <appender-ref ref="dailyRollingFileAppender" />
     <!-- <appender-ref ref="minuteRollingFileAppender"/> -->

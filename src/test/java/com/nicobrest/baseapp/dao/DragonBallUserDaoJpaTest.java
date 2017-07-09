@@ -1,14 +1,15 @@
-package baseapp.dao;
+package com.nicobrest.baseapp.dao;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
-import baseapp.exception.ApplicationBadRequestException;
-import baseapp.exception.ApplicationConflictException;
-import baseapp.exception.ApplicationNotFoundException;
-import baseapp.exception.ApplicationServerErrorException;
-import baseapp.model.DragonBallUser;
+import com.nicobrest.baseapp.dao.DragonBallUserDaoJpa;
+import com.nicobrest.baseapp.exception.ApplicationBadRequestException;
+import com.nicobrest.baseapp.exception.ApplicationConflictException;
+import com.nicobrest.baseapp.exception.ApplicationNotFoundException;
+import com.nicobrest.baseapp.exception.ApplicationServerErrorException;
+import com.nicobrest.baseapp.model.DragonBallUser;
 
 import org.junit.Before;
 import org.junit.Rule;

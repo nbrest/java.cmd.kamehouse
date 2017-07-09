@@ -1,4 +1,4 @@
-package baseapp.model;
+package com.nicobrest.baseapp.model;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.not;
@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-import baseapp.model.DragonBallUser;
+import com.nicobrest.baseapp.model.DragonBallUser;
 
 import org.junit.Rule;
 

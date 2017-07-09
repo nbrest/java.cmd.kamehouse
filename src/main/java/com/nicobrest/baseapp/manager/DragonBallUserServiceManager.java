@@ -1,7 +1,7 @@
-package baseapp.manager;
+package com.nicobrest.baseapp.manager;
 
-import baseapp.model.DragonBallUser;
-import baseapp.service.DragonBallUserService;
+import com.nicobrest.baseapp.model.DragonBallUser;
+import com.nicobrest.baseapp.service.DragonBallUserService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

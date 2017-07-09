@@ -71,7 +71,7 @@ function updateLogConfigFile() {
   
   local APP_NAME=$(getAppName)  
   
-  sed -i.bak s/base-app/${APP_NAME}/g src/main/resources/logback.xml
+  sed -i.bak "s,logs\/base-app,logs\/${APP_NAME},g" src/main/resources/logback.xml
   
   rm -f src/main/resources/logback.xml.bak 
   

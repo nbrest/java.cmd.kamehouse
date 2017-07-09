@@ -1,4 +1,4 @@
-package baseapp.exception;
+package com.nicobrest.baseapp.exception;
 
 /**
  *        ApplicationBadRequestException class.

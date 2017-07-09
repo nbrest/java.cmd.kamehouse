@@ -16,24 +16,24 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
   <!-- Manager Layer beans -->
   <bean id="applicationManager"
-    class="baseapp.manager.ApplicationManager">
+    class="com.nicobrest.baseapp.manager.ApplicationManager">
     <property name="dragonBallUserServiceManager" ref="dragonBallUserServiceManager" />
   </bean>
 
   <bean id="dragonBallUserServiceManager"
-    class="baseapp.manager.DragonBallUserServiceManager">
+    class="com.nicobrest.baseapp.manager.DragonBallUserServiceManager">
     <property name="dragonBallUserService" ref="dragonBallUserService" />
   </bean>
 
   <!-- Service Layer beans -->
   <bean id="dragonBallUserService"
-    class="baseapp.service.DragonBallUserService">
+    class="com.nicobrest.baseapp.service.DragonBallUserService">
     <property name="dragonBallUserDao" ref="dragonBallUserDaoJpa" />
   </bean>
 
   <!-- DAO Layer beans -->
   <bean id="dragonBallUserDaoJpa"
-    class="baseapp.dao.DragonBallUserDaoJpa">
+    class="com.nicobrest.baseapp.dao.DragonBallUserDaoJpa">
       <property name="entityManagerFactory" ref="entityManagerFactory" />
   </bean>
 

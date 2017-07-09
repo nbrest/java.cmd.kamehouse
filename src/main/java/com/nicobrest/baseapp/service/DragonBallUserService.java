@@ -1,7 +1,7 @@
-package baseapp.service;
+package com.nicobrest.baseapp.service;
 
-import baseapp.dao.DragonBallUserDao;
-import baseapp.model.DragonBallUser;
+import com.nicobrest.baseapp.dao.DragonBallUserDao;
+import com.nicobrest.baseapp.model.DragonBallUser;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

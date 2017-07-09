@@ -1,6 +1,6 @@
-package baseapp.application;
+package com.nicobrest.baseapp.application;
 
-import baseapp.manager.ApplicationManager;
+import com.nicobrest.baseapp.manager.ApplicationManager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

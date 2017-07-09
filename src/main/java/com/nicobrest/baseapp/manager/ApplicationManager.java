@@ -1,4 +1,4 @@
-package baseapp.manager;
+package com.nicobrest.baseapp.manager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

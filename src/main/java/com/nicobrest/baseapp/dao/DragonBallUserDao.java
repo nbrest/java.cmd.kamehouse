@@ -1,6 +1,6 @@
-package baseapp.dao;
+package com.nicobrest.baseapp.dao;
 
-import baseapp.model.DragonBallUser;
+import com.nicobrest.baseapp.model.DragonBallUser;
 
 import java.util.List;
 

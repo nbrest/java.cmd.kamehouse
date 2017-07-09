@@ -1,4 +1,4 @@
-package baseapp.model;
+package com.nicobrest.baseapp.model;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;

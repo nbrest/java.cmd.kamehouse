@@ -1,5 +1,5 @@
 ###################
-# Added by me     #
+# Added y me     #
 ###################
 .checkstyle
 logs/**
@@ -9,7 +9,8 @@ data/**
 # Directories #
 /build/
 target/
- 
+bin/
+
 # OS Files #
 .DS_Store
  

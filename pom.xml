@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.nicobrest</groupId>
-  <artifactId>java-cmd-base-app</artifactId>
+  <artifactId>kamehouse-cmd</artifactId>
   <packaging>jar</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>Java Cmd Base App</name>
+  <version>4.00.1-SNAPSHOT</version>
+  <name>KameHouse - Cmd</name>
   <url>https://www.nicobrest.com</url>
 
   <properties>
@@ -39,6 +39,12 @@
   </properties>
 
   <dependencies>
+
+		<dependency>
+		    <groupId>javax.xml.bind</groupId>
+		    <artifactId>jaxb-api</artifactId>
+		    <version>2.2.8</version>
+		</dependency>
 
     <!-- Apache -->
     <dependency>
@@ -198,29 +204,6 @@
 
   <build>
     <plugins>
-      <!-- checkstyle: Checks that the code sticks to standard conventions -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>${checkstyle.version}</version>
-        <executions>
-          <execution>
-            <id>checkstyle</id>
-            <phase>compile</phase>
-            <configuration>
-              <configLocation>google_checks.xml</configLocation>
-              <encoding>${project.build.sourceEncoding}</encoding>
-              <consoleOutput>true</consoleOutput>
-              <failsOnError>true</failsOnError>
-              <linkXRef>false</linkXRef>
-            </configuration>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-
       <!-- maven compiler plugin: Compiler configurations for maven -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -273,14 +256,14 @@
           <!-- Configures the directory in which the XML report is created -->
           <findbugsXmlOutputDirectory>${project.build.directory}/findbugs</findbugsXmlOutputDirectory>
         </configuration>
-        <executions>
+		    <executions>
           <!-- Ensures that FindBugs inspects source code when project is compiled. -->
-          <execution>
+		        <execution>
             <id>findbugs</id>
             <phase>compile</phase>
-            <goals>
+		            <goals>
               <goal>check</goal>
-            </goals>
+		            </goals>
           </execution>
         </executions>
       </plugin>
@@ -291,18 +274,18 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
         <version>${jar.plugin.version}</version>
-        <configuration>
-          <archive>
-            <manifest>
-              <addClasspath>true</addClasspath>
+		            <configuration>
+		                <archive>
+		                    <manifest>
+		                        <addClasspath>true</addClasspath>
               <classpathPrefix></classpathPrefix>
-              <mainClass>com.nicobrest.baseapp.application.MainApp</mainClass>
-            </manifest>
+              <mainClass>com.nicobrest.cmd.config.MainApp</mainClass>
+		                    </manifest>
             <manifestEntries>
               <Class-Path>.</Class-Path>
             </manifestEntries>
-          </archive>
-        </configuration>
+		                </archive>
+		            </configuration>
       </plugin>
 
       <plugin>
@@ -322,10 +305,10 @@
             <goals>
               <goal>single</goal>
             </goals>
-          </execution>
-        </executions>
+		        </execution>
+		    </executions>
       </plugin>
-
+      
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
@@ -362,8 +345,12 @@
 
   <!-- Profile definitions -->
   <profiles>
+    <!-- Default profile -->
     <profile>
       <id>prod</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
       <build>
         <filters>
           <filter>src/main/filters/prod/hibernate.properties</filter>
@@ -382,12 +369,8 @@
       </build>
     </profile>
 
-    <!-- Default profile -->
     <profile>
       <id>dev</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
       <build>
         <filters>
           <filter>src/main/filters/dev/hibernate.properties</filter>

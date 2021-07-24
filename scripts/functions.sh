@@ -48,32 +48,15 @@ function createExecScript() {
   local APP_NAME=$(getAppName)
   local APP_VERSION=$(getAppVersion)
   
+  echo "APP_NAME=${APP_NAME}"
+   echo "APP_VERSION=${APP_VERSION}"
+
   cp ${SCRIPT_DIR}/base-app-template.sh bin/${APP_NAME}.sh
   
   sed -i.bak s/base-app/${APP_NAME}/g bin/${APP_NAME}.sh
   sed -i.bak s/0\.0\.1-SNAPSHOT/${APP_VERSION}/g bin/${APP_NAME}.sh
   
   rm -f bin/${APP_NAME}.sh.bak 
-  
-  cd ${CURRENT_DIR}
-}
-
-function updateLogConfigFile() {
-  
-  CURRENT_DIR=$(pwd)
-  if [[ $0 == /* ]]; then 
-    SCRIPT_DIR=$(dirname $0)
-  else 
-    SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
-  fi
-
-  cd ${SCRIPT_DIR}/..
-  
-  local APP_NAME=$(getAppName)  
-  
-  sed -i.bak "s,logs\/base-app,logs\/${APP_NAME},g" src/main/resources/logback.xml
-  
-  rm -f src/main/resources/logback.xml.bak 
   
   cd ${CURRENT_DIR}
 }

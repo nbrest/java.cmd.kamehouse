@@ -18,7 +18,6 @@ function main() {
   cd ${SCRIPT_DIR}/..
 
   createExecScript
-  updateLogConfigFile
   MAVEN_OPTIONS="$@"
   
   echo "Compiling the project with the parameters: ${MAVEN_OPTIONS}"

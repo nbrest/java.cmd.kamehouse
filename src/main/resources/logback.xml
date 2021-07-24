@@ -2,48 +2,52 @@
 <configuration>
   <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
-      <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg %n
-      </Pattern>
+      <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg %n</Pattern>
     </encoder>
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
       <level>TRACE</level>
     </filter>
   </appender>
 
-  <appender name="dailyRollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <File>logs/java-cmd-base-app.log</File>
-    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <!-- daily rollover -->
-      <FileNamePattern>logs/java-cmd-base-app.%d{yyyy-MM-dd}.log</FileNamePattern>
-      <!-- keep 30 days' worth of history -->
-      <maxHistory>30</maxHistory>
-    </rollingPolicy>
-    <encoder>
-      <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg
-        %n</Pattern>
-    </encoder>
-  </appender>
-
-  <logger name="com.nicobrest.baseapp" additivity="false">
-    <level value="DEBUG" />
-    <appender-ref ref="dailyRollingFileAppender" />
-    <!-- <appender-ref ref="minuteRollingFileAppender"/> -->
-    <appender-ref ref="consoleAppender" />
-  </logger>
-
-  <logger name="org.hibernate.type.descriptor.sql" additivity="false">
-    <level value="TRACE" />
-    <appender-ref ref="consoleAppender" />
-  </logger>
-
-  <logger name="org.hibernate.SQL" additivity="false">
-    <level value="DEBUG" />
-    <appender-ref ref="consoleAppender" />
-  </logger>
-
   <root>
     <level value="INFO" />
     <appender-ref ref="consoleAppender" />
-    <appender-ref ref="dailyRollingFileAppender" />
   </root>
+  
+  <logger name="com.nicobrest.baseapp" additivity="false">
+    <level value="DEBUG" />
+    <appender-ref ref="consoleAppender" />
+  </logger>
+
+  <!-- spring packages -->
+  <logger name="org.springframework" additivity="false">
+    <level value="WARN" />
+    <appender-ref ref="consoleAppender" />
+  </logger>
+
+  <logger name="org.springframework.security" additivity="false">
+    <level value="WARN" />
+    <appender-ref ref="consoleAppender" />
+  </logger>
+
+  <logger name="org.springframework.web.socket.config.WebSocketMessageBrokerStats" additivity="false">
+    <level value="WARN" />
+    <appender-ref ref="consoleAppender" />
+  </logger>
+
+  <!-- hibernate packages -->
+  <logger name="org.hibernate" additivity="false">
+    <level value="WARN" />
+    <appender-ref ref="consoleAppender" />
+  </logger>
+  
+  <logger name="org.hibernate.hql.internal.QueryTranslatorFactoryInitiator" additivity="false">
+    <level value="WARN" />
+    <appender-ref ref="consoleAppender" />
+  </logger>
+  
+  <logger name="org.hsqldb" additivity="false">
+    <level value="WARN" />
+    <appender-ref ref="consoleAppender" />
+  </logger>
 </configuration>

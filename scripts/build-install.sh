@@ -5,20 +5,29 @@
 #########################################################
 # parameters: maven options
 
-CURRENT_DIR=$(pwd)
-if [[ $0 == /* ]]; then 
-  SCRIPT_DIR=$(dirname $0)
-else 
-  SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
-fi
-source ${SCRIPT_DIR}/functions.sh
-APP_NAME=$(getAppName)
+main() {
+  setProjectDirs
+  cd ${PROJECT_DIR}
 
-cd ${SCRIPT_DIR}/..
+  scripts/build.sh "$@"
+  install
 
-scripts/build.sh "$@"
+  cd ${CURRENT_DIR}
+}
 
-unzip target/${APP_NAME}-bundle.zip -d target/ 
+install() {
+  unzip target/kamehouse-cmd-bundle.zip -d target/ 
+}
 
-cd ${CURRENT_DIR}
+setProjectDirs() {
+  export CURRENT_DIR=$(pwd)
+  if [[ $0 == /* ]]; then 
+    export SCRIPT_DIR=$(dirname $0)
+  else 
+    export SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
+  fi
+  export PROJECT_DIR=${SCRIPT_DIR}/..
+}
+
+main "$@"
 

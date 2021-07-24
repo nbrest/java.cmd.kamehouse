@@ -4,17 +4,27 @@
 # developing, testing and building the application.     #
 #########################################################
 
-CURRENT_DIR=$(pwd)
-if [[ $0 == /* ]]; then 
-  SCRIPT_DIR=$(dirname $0)
-else 
-  SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
-fi
-source ${SCRIPT_DIR}/functions.sh
-APP_NAME=$(getAppName)
+main() {
+  setProjectDirs
+  cd ${PROJECT_DIR}
 
-cd ${SCRIPT_DIR}/..
+  runApp "$@"
 
-target/${APP_NAME}/bin/${APP_NAME}.sh "$@"
+  cd ${CURRENT_DIR}
+}
 
-cd ${CURRENT_DIR}
+runApp() {
+  target/kamehouse-cmd/bin/kamehouse-cmd.sh "$@"
+}
+
+setProjectDirs() {
+  export CURRENT_DIR=$(pwd)
+  if [[ $0 == /* ]]; then 
+    export SCRIPT_DIR=$(dirname $0)
+  else 
+    export SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
+  fi
+  export PROJECT_DIR=${SCRIPT_DIR}/..
+}
+
+main "$@"

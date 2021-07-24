@@ -7,15 +7,28 @@
 # executing the build again.                                  #
 ###############################################################
 
-CURRENT_DIR=$(pwd)
-if [[ $0 == /* ]]; then 
-  SCRIPT_DIR=$(dirname $0)
-else 
-  SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
-fi
+function main() {
+  setProjectDirs
+  cd ${PROJECT_DIR}
+  
+  executeApp "$@"
 
-cd ${SCRIPT_DIR}/..
+  cd ${CURRENT_DIR}
+}
 
-java -jar lib/base-app-0.0.1-SNAPSHOT.jar "$@"
+executeApp() {
+  KAMEHOUSE_CMD_APP=`ls -1 lib/kamehouse-cmd-*`
+  java -jar ${KAMEHOUSE_CMD_APP} "$@"
+}
 
-cd ${CURRENT_DIR}
+setProjectDirs() {
+  export CURRENT_DIR=$(pwd)
+  if [[ $0 == /* ]]; then 
+    export SCRIPT_DIR=$(dirname $0)
+  else 
+    export SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
+  fi
+  export PROJECT_DIR=${SCRIPT_DIR}/..
+}
+
+main "$@"

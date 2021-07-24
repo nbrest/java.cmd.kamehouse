@@ -8,16 +8,25 @@
 # This script builds with compiler parameters and runs the application without runtime parameters.
 # To compile and run the application with parameters, use the script build-install-run-params.sh
 
-CURRENT_DIR=$(pwd)
-if [[ $0 == /* ]]; then 
-  SCRIPT_DIR=$(dirname $0)
-else 
-  SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
-fi
+main() {
+  setProjectDirs
+  cd ${PROJECT_DIR}
 
-cd ${SCRIPT_DIR}/..
+  scripts/build-install.sh "$@"
+  scripts/run.sh
 
-scripts/build-install.sh "$@"
-scripts/run.sh
+  cd ${CURRENT_DIR}
+}
 
-cd ${CURRENT_DIR}
+setProjectDirs() {
+  export CURRENT_DIR=$(pwd)
+  if [[ $0 == /* ]]; then 
+    export SCRIPT_DIR=$(dirname $0)
+  else 
+    export SCRIPT_DIR=$(dirname $(echo $(pwd)/$0))
+  fi
+  export PROJECT_DIR=${SCRIPT_DIR}/..
+}
+
+main "$@"
+

@@ -6,18 +6,12 @@
 # parameters: maven options
 
 main() {
-  setProjectDirs
+  setProjectDirs "$@"
   cd ${PROJECT_DIR}
 
-  exportBinScript
   buildApp "$@"
 
   cd ${CURRENT_DIR}
-}
-
-exportBinScript() {
-  echo "Exporting bin/ script from template"
-  cp ${SCRIPT_DIR}/base-app-template.sh ${PROJECT_DIR}/bin/kamehouse-cmd.sh
 }
 
 buildApp() {

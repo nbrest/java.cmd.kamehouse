@@ -24,12 +24,12 @@
     </fileSet>
     <!-- Bin files -->
     <fileSet>
-      <directory>${project.basedir}/bin</directory>
+      <directory>${project.basedir}/scripts</directory>
       <outputDirectory>bin</outputDirectory>
       <filtered>true</filtered>
       <includes>
-        <include>*.bat</include>
-        <include>*.sh</include>
+        <include>kamehouse-cmd*.bat</include>
+        <include>kamehouse-cmd*.sh</include>
       </includes>
     </fileSet>
   </fileSets>

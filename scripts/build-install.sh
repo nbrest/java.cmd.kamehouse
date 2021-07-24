@@ -6,7 +6,7 @@
 # parameters: maven options
 
 main() {
-  setProjectDirs
+  setProjectDirs "$@"
   cd ${PROJECT_DIR}
 
   scripts/build.sh "$@"

@@ -9,7 +9,7 @@
 # To compile and run the application with parameters, use the script build-install-run-params.sh
 
 main() {
-  setProjectDirs
+  setProjectDirs "$@"
   cd ${PROJECT_DIR}
 
   scripts/build-install.sh "$@"

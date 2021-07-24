@@ -1,20 +1,17 @@
 #!/bin/bash
-#########################################################
-# These are develompment scripts meant to be used while #
-# developing, testing and building the application.     #
-#########################################################
 
-main() {
+function main() {
   setProjectDirs "$@"
   cd ${PROJECT_DIR}
-
-  runApp "$@"
+  
+  executeApp "$@"
 
   cd ${CURRENT_DIR}
 }
 
-runApp() {
-  target/kamehouse-cmd/bin/kamehouse-cmd.sh "$@"
+executeApp() {
+  KAMEHOUSE_CMD_APP=`ls -1 lib/kamehouse-cmd-*`
+  java -jar ${KAMEHOUSE_CMD_APP} "$@"
 }
 
 setProjectDirs() {

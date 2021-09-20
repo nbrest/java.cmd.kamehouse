@@ -1,3 +1,5 @@
+This project is deprecated and the functionality moved to the module kamehouse-cmd in the project https://github.com/nbrest/java.web.kamehouse
+
 ******
 # Notes:
 
